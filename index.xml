@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Return from death</title>
-    <link>http://example.org/</link>
-    <description>Recent content on Return from death</description>
+    <title>Richard Fagot</title>
+    <link>https://richard-fagot.github.io/</link>
+    <description>Recent content on Richard Fagot</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>fr-fr</language>
+    <lastBuildDate>Fri, 16 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://richard-fagot.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>J&#39;ai fait un don de moelle osseuse !</title>
+      <link>https://richard-fagot.github.io/posts/don-de-moelle-osseuse/</link>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/don-de-moelle-osseuse/</guid>
+      <description>Inscrit depuis près de 10 ans au registre de don de moelle osseuse, je reçoit un appel d&amp;rsquo;un médecin qui me dit que quelqu&amp;rsquo;un pourrait avoir besoin de moi et si j&amp;rsquo;étais toujours d&amp;rsquo;accord pour faire un don. J&amp;rsquo;ai dit oui tout de suite.
+Mes motivations Je l&amp;rsquo;avoue avec un peu de honte : je ne suis pas très chaud pour donner mes organes une fois mort et encore moins vivant, sauf pour mes enfants.</description>
+    </item>
+    
+    <item>
+      <title>Retours sur le Code Retreat 2016</title>
+      <link>https://richard-fagot.github.io/posts/retour-code-retreat-2016/</link>
+      <pubDate>Wed, 02 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/retour-code-retreat-2016/</guid>
+      <description>Le Global Day of Code Retreat est un événement mondial où des développeurs se réunissent pour le plaisir de pratiquer l&amp;rsquo;artisanat logiciel (Software Craftmanship) autour d&amp;rsquo;un sujet commun - le jeu de la vie - à implémenter par la technique du TDD (Test Driven Development), avec quelques contraintes imposées par les facilitateurs (qui portent plutôt mal leur nom du coup).
+TL,DR  115 villes participantes ; 14 développeurs passionnés à Toulouse ; 2 facilitateurs ; 1 samedi complet à coder en TDD ; 6 sessions de 45 min.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS, mobile et disparition d&#39;image.</title>
+      <link>https://richard-fagot.github.io/posts/la-disparition-images/</link>
+      <pubDate>Fri, 11 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/la-disparition-images/</guid>
+      <description>Une application web mobile en AngularJS, des images qui tantôt s&amp;rsquo;affichent sur certains mobiles, tantôt pas. La disparition de ces images n&amp;rsquo;est pas mystérieuse ni aléatoire mais est causée par des êtres se dissimulant dans les profondeurs obscures du réseau et laissant leur trace dans nos applications développées avec force et courage.
+TL,DR  Utilisez la directive ng-src pour indiquer l&amp;rsquo;emplacement relatif de vos images ; Fin.  Le contexte Pour un client, nous avons développé une application AngularJS avec Bootstrap pour une utilisation sur mobile en 3G/4G.</description>
+    </item>
+    
+    <item>
+      <title>Drools, Le jeu de la vie</title>
+      <link>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</link>
+      <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</guid>
+      <description>Un collègue m&amp;rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.
+Simple et élégante, comme on peut s&amp;rsquo;y attendre en Haskell, cela m&amp;rsquo;a donné l&amp;rsquo;idée de le faire en Drools.
+TL,DR  Téléchargez l&amp;rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Le contexte Lorsqu&amp;rsquo;on suit les tutoriaux pour apprendre à faire du Drools (ou du JRules aussi d&amp;rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu&amp;rsquo;on peut faire avec un BRMS : la suite de Fibonacci.</description>
+    </item>
+    
+    <item>
+      <title>Drools, Tables de décision et Ruleflow</title>
+      <link>https://richard-fagot.github.io/posts/drools-dt-jbpmn/</link>
+      <pubDate>Sun, 30 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/drools-dt-jbpmn/</guid>
+      <description>Vous voulez faire marcher une table de décision dans un ruleflow ? Vous vous y êtes essayé et maintenant vous dormez dans un cercueil ? Retrouvez votre âme perdue en lisant cet article !
+TL;DR  Téléchargez l&amp;rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Ce qu&amp;rsquo;il faut savoir avant de commencer Drools évolue beaucoup entre deux versions et il ne faut pas compter sur la retrocompatibilité. Ce qui marche dans une version peut ne plus fonctioner dans la version suivante et je ne parle même pas des versions SNAPSHOT.</description>
+    </item>
+    
+    <item>
+      <title>Configurer OVH pour Github Pages et s&#39;en sortir vivant !</title>
+      <link>https://richard-fagot.github.io/posts/configurer-ovh-pour-github-pages/</link>
+      <pubDate>Sat, 15 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/configurer-ovh-pour-github-pages/</guid>
+      <description>Vous possédez un joli nom de domaine chez OVH et un bel hébergement sous Github, mais pénétrer la configuration de zone DNS est comme se retrouver devant l&amp;rsquo;entrée d&amp;rsquo;un nid à zombies ? Suivez ce guide et revenez victorieux des profondeurs infernales de la configuration de zone DNS !
+Le problème J&amp;rsquo;ai créé un site sur la Savate Boxe Française hébergé par un projet sous Github. Pour que se soit plus joli j&amp;rsquo;ai voulu lui associer un beau nom de domaine www.</description>
+    </item>
+    
+    <item>
+      <title>Installer Jekyll pour faire tourner le thème Feeling Responsive</title>
+      <link>https://richard-fagot.github.io/posts/installer-jekyll-pour-le-theme-feeling-responsive/</link>
+      <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/installer-jekyll-pour-le-theme-feeling-responsive/</guid>
+      <description>Installer Jekyll sous ubuntu 14.04 n&amp;rsquo;est pas trivial : les dépôts contiennent une version d&amp;rsquo;outre-tombe de Jekyll et une version poussiéreuse de Ruby. En plus, Jekyll seul ne suffit pas, il faut en plus installer nodejs.
+Plutôt que d&amp;rsquo;avoir une gueule de revenant après avoir chercher pendant des heures comment faire tourner le bouzin, faites ceci :
+apt-add-repository ppa:brightbox/ruby-ng apt-get update apt-get install ruby2.2 ruby2.2-dev apt-get install nodejs npm gem install jekyll Youpi, c&amp;rsquo;est fini et vous avez gardé votre physique de jeune premier !</description>
+    </item>
+    
+    <item>
+      <title>Installer une clé SSH pour github sous ubuntu 14.04</title>
+      <link>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
+      <description> Suivre les étapes indiquées dans Github sans faire la 5 ; Faire ssh-keyscan -t rsa github.com &amp;gt; ~/.ssh/known_hosts ; Faire l&amp;rsquo;étape 5 ; cloner le projet git en utilisant le clone SSH.  </description>
+    </item>
     
   </channel>
 </rss>

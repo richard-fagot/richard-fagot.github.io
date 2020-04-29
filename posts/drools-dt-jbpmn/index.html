@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Drools, Tables de décision et Ruleflow - Richard Fagot</title>
+  <meta name="description" content="Comment faire marcher les tables de décision de Drools avec un ruleflow">
+  <meta name="author" content="Richard Fagot"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Richard Fagot",
+    
+    "url": "https:\/\/richard-fagot.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/richard-fagot.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/richard-fagot.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/richard-fagot.github.io\/posts\/drools-dt-jbpmn\/",
+          "name": "Drools, tables de décision et ruleflow"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Richard Fagot"
+  },
+  "headline": "Drools, Tables de décision et Ruleflow",
+  "description" : "Comment faire marcher les tables de décision de Drools avec un ruleflow",
+  "inLanguage" : "fr",
+  "wordCount":  1270 ,
+  "datePublished" : "2015-08-30T00:00:00",
+  "dateModified" : "2015-08-30T00:00:00",
+  "image" : "https:\/\/richard-fagot.github.io\/img\/avatar.png",
+  "keywords" : [ "drools, jboss, ruleflow, Table de décision, BRMS, Moteur de règles métiers, Excel" ],
+  "mainEntityOfPage" : "https:\/\/richard-fagot.github.io\/posts\/drools-dt-jbpmn\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/richard-fagot.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/richard-fagot.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Drools, Tables de décision et Ruleflow" />
+<meta property="og:description" content="Comment faire marcher les tables de décision de Drools avec un ruleflow">
+<meta property="og:image" content="https://richard-fagot.github.io/img/avatar.png" />
+<meta property="og:url" content="https://richard-fagot.github.io/posts/drools-dt-jbpmn/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Richard Fagot" />
+
+  <meta name="twitter:title" content="Drools, Tables de décision et Ruleflow" />
+  <meta name="twitter:description" content="Comment faire marcher les tables de décision de Drools avec un ruleflow">
+  <meta name="twitter:image" content="https://richard-fagot.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@@richardfagot" />
+  <meta name="twitter:creator" content="@@richardfagot" />
+  <link href='https://richard-fagot.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.69.2" />
+  <link rel="alternate" href="https://richard-fagot.github.io/index.xml" type="application/rss+xml" title="Richard Fagot"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://richard-fagot.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/syntax.css" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://richard-fagot.github.io/">Richard Fagot</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Richard Fagot" href="https://richard-fagot.github.io/">
+            <img class="avatar-img" src="https://richard-fagot.github.io/img/avatar.png" alt="Richard Fagot" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Drools, Tables de décision et Ruleflow</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/img/drools-dt-jbpmn/feature-drools-cercueil.png" alt="img">
+Vous voulez faire marcher une table de décision dans un ruleflow ? Vous vous y êtes essayé et maintenant vous dormez dans un cercueil ? Retrouvez votre âme perdue en lisant cet article !</p>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li><a href="https://github.com/richard-fagot/drools-6.2.0-dt-jbpmn">Téléchargez l&rsquo;exemple</a> ;</li>
+<li>Suivez les instructions indiquées dans le <em>README.md</em>.</li>
+</ol>
+<h2 id="ce-quil-faut-savoir-avant-de-commencer">Ce qu&rsquo;il faut savoir avant de commencer</h2>
+<p><em>Drools</em> évolue beaucoup entre deux versions et il ne faut pas compter sur la retrocompatibilité. Ce qui marche dans une version peut ne plus fonctioner dans la version suivante et je ne parle même pas des versions SNAPSHOT.</p>
+<p>Dans ce tutoriel, il faudra utiliser la version <em>Drools 6.2.0.Final</em>.</p>
+<h2 id="le-problème">Le problème</h2>
+<p>Pour le développement d&rsquo;un prototype, le client souhaitait un module avec des règles métier, si possible pas cher. Ça tombe bien, <em>Drools</em> est un BRMS open source et gratuit.</p>
+<p>Pour montrer qu&rsquo;il est possible de personnaliser certaines règles facilement, nous avons ajouté une table de décision, simple, mais pour le prototype c&rsquo;était suffisant et serait du plus bel effet.</p>
+<p><em>Drools</em> propose deux façons de faire des tables de décisions avec des fichiers <em>Excel</em>. Dans les deux cas, chaque ligne du fichier donnera une règle basée sur un template à définir.</p>
+<p>La première, pas très sexy, consiste à faire précéder les lignes de données par le template de la règle à exécuter. Cela fait apparaître dans le fichier <em>Excel</em> des informations de nature technique, modifiable par quiconque édite le fichier, avec les séances de débogage obscures que cela implique.</p>
+<p>La seconde, attirante celle-ci, sépare les données d&rsquo;un côté et le template de l&rsquo;autre. On a un fichier <em>Excel</em> d&rsquo;un coté qui contient uniquement les données : la table de décision elle-même telle qu&rsquo;une personne lambda peut l&rsquo;imaginer.</p>
+<p>Et un template de règle de l&rsquo;autre coté qui servira de patron pour créer les règles sur la base de la table de décision.</p>
+<p>Naturellement, le choix à été de se jeter sur la seconde solution comme un junky sur un rail de cocaïne. Et là, ce fut le drame&hellip;</p>
+<p>Il se trouve que dans sa version <em>6.2.0</em> (la version stable officielle au moment du développement du prototype), <em>Drools</em>  nécessite de compiler la table de décision en passant par le code, au contraire de la version <em>6.4</em> qui, elle, permet de simplement déclarer le fichier <em>Excel</em> et le template dans le fichier de configuration <em>kmodule.xml</em>.</p>
+<p>En plus, la façon de faire ne permet pas d&rsquo;utiliser facilement cette méthode dans le cadre d&rsquo;un <em>Ruleflow</em>. Mais alors, vraiment pas&hellip;</p>
+<h2 id="la-solution">La solution</h2>
+<p>Avec <em>Drools 6.2.0.Final</em>, pour pouvoir utiliser des tables de décision dans le cadre d&rsquo;un <em>Ruleflow</em>, il vaut mieux utiliser la première façon, à savoir, un fichier <em>Excel</em> unique, contenant à la fois les données et le template.</p>
+<p>La construction de ce fichier est basée sur la convention plutôt que sur la configuration alors il faut bien respecter les libellés et la position des cellules contenant les données et le template.</p>
+<p>L&rsquo;avantage de cette solution, parce qu&rsquo;il y en a quand même un, c&rsquo;est que, une fois que la table de décision est bien formée, il suffit de la placer à côté des autres règles, et c&rsquo;est tout. Pas de configuration supplémentaire, par de code, rien.</p>
+<p>Le système compile tout seul la table de décision pour générer l&rsquo;ensemble des règles qui s&rsquo;y rapporte.</p>
+<h2 id="limplémentation">L&rsquo;implémentation</h2>
+<p>Nous allons développer un petit système de règles métier permettant de déterminer la catégorie d&rsquo;âge d&rsquo;un tireur en <a href="http://www.esprit-savate.fr"><em>Savate Boxe Française</em></a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Boxer</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> String nom<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> poids<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> CategorieAge ageCat<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> CategoriePoids poidsCat<span style="color:#f92672">;</span>
+      
+   <span style="color:#f92672">[...]</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>La détermination de la catégorie d&rsquo;âge se fait au moment opportun dans le ruleflow :D</p>
+<p><img src="/img/drools-dt-jbpmn/ruleflow.png" alt="Ruleflow"></p>
+<p>Le <em>RuleFlowGroup</em> visible dans les propriétés de la <em>Rule Task</em> est positionné à <em>agePoidsCat</em>. Cette information nous permettra d&rsquo;indiquer à <em>Drools</em> à quel moment exécuter notre table de décision dans le déroulement du <em>Ruleflow</em>.</p>
+<h3 id="la-table-de-décision">La table de décision</h3>
+<p>Nous voici enfin au cœur du problème : la table de décision :</p>
+<p><img src="/img/drools-dt-jbpmn/dt.png" alt="Table de décision"></p>
+<p>Pour l&rsquo;écrire il faut se montrer très rigoureux car il n&rsquo;y a pas d&rsquo;aide à la saisie (pas de complétion automatique), il faut écrire certains libellés exactement comme demandé, dont certains à une place bien précise par rapport aux données.</p>
+<h3 id="les-méta-données">Les méta-données</h3>
+<p>C&rsquo;est le premier cartouche de table de décision, celui où on indique le package de la règle, les imports et le <em>RuleFlowGroup</em> (il existe d&rsquo;autres méta données, voir la <a href="http://docs.jboss.org/drools/release/6.2.0.Final/drools-docs/html_single/index.html">documentation officielle</a>).</p>
+<p>Le nom de la méta-donnée doit être placé dans une cellule et sa valeur dans la cellule d&rsquo;à côté.</p>
+<p>Petite particularité pour l&rsquo;import, il faut séparer les différentes valeurs par une virgule. Apparemment, il est possible de mettre chaque valeur dans une suite de cellules les unes en-dessous des autres, mais je n&rsquo;ai pas testé.</p>
+<p>Vient ensuite le template de la règle et des données.</p>
+<h3 id="déclaration-de-la-règle">Déclaration de la règle</h3>
+<p><em>Drools</em> va rechercher une cellule du type &ldquo;<em>RuleTable &lt;rulename&gt;</em>&quot;. Le mot-clé <em>RuleTable</em> lui indique le début de la règle.</p>
+<p>Le mot <em>&lt;rulename&gt;</em> lui servira pour nommer les règles générées (ici, <em>setagecat</em>).</p>
+<p>Pour voir le nom des règles générées, supprimez le point-virgule dans la colonne action, rafraîchissez <em>Ecplise</em> et exécutez le projet. Dans la console vous verrez apparaître le nom des règles.</p>
+<p>Je vous conseille de mettre un seul mot, sans espace, sans caractère accentué ni spécial pour le <em>&lt;rulename&gt;</em>.</p>
+<h3 id="déclaration-des-types-de-colonnes">Déclaration des types de colonnes</h3>
+<p>À la suite du mot-clé <em>RuleTable</em>, <em>Drools</em> va rechercher le type des colonnes. En général, comme ici, on utilise les types <em>CONDITION</em> et <em>ACTION</em> (il en existe d&rsquo;autres <a href="http://docs.jboss.org/drools/release/6.2.0.Final/drools-docs/html_single/index.html#d0e5258">dans la doc</a>). Rien de bien méchant, attention juste aux majuscules et aux fautes de frappes.</p>
+<h3 id="écriture-du-template">Écriture du template</h3>
+<p>On souhaite obtenir pour chaque ligne de la table de décision une règle comme celle-ci :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#f92672">package</span> rfagot.examples.drools_620_dt_jbpmn.rules
+
+ <span style="color:#f92672">import</span> rfagot.examples.drools_620_dt_jbpmn.model.Boxer
+ <span style="color:#f92672">import</span> rfagot.examples.drools_620_dt_jbpmn.model.CategorieAge
+
+
+ rule <span style="color:#e6db74">&#34;setagecat&#34;</span>
+ ruleflow<span style="color:#f92672">-</span>group <span style="color:#e6db74">&#34;agePoidsCat&#34;</span>
+ dialect <span style="color:#e6db74">&#34;mvel&#34;</span>
+
+    when
+        boxer <span style="color:#f92672">:</span> Boxer<span style="color:#f92672">(</span>age <span style="color:#f92672">&gt;=</span> $1<span style="color:#f92672">,</span> age <span style="color:#f92672">&lt;=</span> $2<span style="color:#f92672">)</span>
+    then
+        boxe<span style="color:#f92672">.</span><span style="color:#a6e22e">setAgeCat</span><span style="color:#f92672">(</span>$param<span style="color:#f92672">);</span>
+ end </code></pre></div>
+<p>On retrouve le nom du package (<em>RuleSet</em>), les imports, le <em>RULEFLOW-GROUP</em>, et le nom des règles à générer (<em>setagecat</em>).</p>
+<p>Le passage de la règle littérale au template dans la table de décision ne pose pas de problème. La particularité ici, réside dans la condition à plusieurs paramètres et aux fautes de frappe.</p>
+<p>L&rsquo;écriture d&rsquo;une condition à plusieurs paramètres est simple à comprendre. Dans les données on sépare les valeurs par une virgule et on les référence par <code>$1</code> et <code>$2</code> (on peut bien sûr mettre plus de deux paramètres). La subtilité vient du tableur.</p>
+<p>En français, le séparateur des décimaux est la virgule. Si vos paramètres sont des entiers comme ici, <em>Excel</em> les interprétera comme un nombre décimal et marquera la cellule comme tel et <em>Drools</em> ne sera pas capable d&rsquo;interpréter correctement la cellule comme une suite de deux valeurs (ne me demandez pas pourquoi&hellip;). Pour que la cellule soit correctement interprétable par <em>Drools</em> il faut la marquer comme zone de texte :</p>
+<p><img src="/img/drools-dt-jbpmn/cellule-texte.png" alt="Format de la cellule texte"></p>
+<p>Comme il n&rsquo;y a pas de complétion automatique ni de compilation à la volée il faut être rigoureux sur l&rsquo;écriture du template. Je vous conseille d&rsquo;écrire une règle telle quelle doit être générée, de la tester et ensuite de créer la table de décision en faisant des copier-collers.</p>
+<h2 id="lexécution">L&rsquo;exécution</h2>
+<p>Une fois la table de décision écrite et sauvegardée, le travail s&rsquo;arrête là. Il n&rsquo;y a pas de code à écrire ni de déclaration à faire dans le <em>kmodule.xml</em>. <em>Drools</em> s&rsquo;occupe d&rsquo;identifier les tables de décisions présentes dans les ressources et de générer les règles correspondantes.</p>
+<p>Exécutez la classe <code>Main.java</code> comme projet java. En sortie, dans la console vous devez avoir :</p>
+<pre><code class="language-console" data-lang="console">Pierre(12 ans, 40 kg) est Benjamins
+Jacques(36 ans, 73 kg) est VeteransCombat</code></pre>
+<p><strong>Attention</strong> : les tables de décisions sont gourmandes en mémoire. Utilisez-les en connaissance de cause !</p>
+<p>Le projet d&rsquo;exemple se trouve sur <a href="https://github.com/richard-fagot/drools-6.2.0-dt-jbpmn">https://github.com/richard-fagot/drools-6.2.0-dt-jbpmn</a></p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://richard-fagot.github.io//tags/drools/">drools</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/jboss/">jboss</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/ruleflow/">ruleflow</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/table-de-d%C3%A9cision/">Table de décision</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/brms/">BRMS</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/moteur-de-r%C3%A8gles-m%C3%A9tiers/">Moteur de règles métiers</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/excel/">Excel</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://richard-fagot.github.io/posts/configurer-ovh-pour-github-pages/" data-toggle="tooltip" data-placement="top" title="Configurer OVH pour Github Pages et s&#39;en sortir vivant !">&larr; Post précédent</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/" data-toggle="tooltip" data-placement="top" title="Drools, Le jeu de la vie">Post suivant &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/richard-fagot" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/@richardfagot" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/richardfagot" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://richard-fagot.github.io/">Richard Fagot</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://richard-fagot.github.io/">Richard Fagot</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Carbure avec <a href="https://gohugo.io">Hugo v0.69.2</a>&nbsp;&bull;&nbsp; Avec le Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapté de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://richard-fagot.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://richard-fagot.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

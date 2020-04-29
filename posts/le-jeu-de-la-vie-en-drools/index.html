@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Drools, Le jeu de la vie - Richard Fagot</title>
+  <meta name="description" content="Un collègue m&rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.
+Simple et élégante, comme on peut s&rsquo;y attendre en Haskell, cela m&rsquo;a donné l&rsquo;idée de le faire en Drools.
+TL,DR  Téléchargez l&rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Le contexte Lorsqu&rsquo;on suit les tutoriaux pour apprendre à faire du Drools (ou du JRules aussi d&rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu&rsquo;on peut faire avec un BRMS : la suite de Fibonacci.">
+  <meta name="author" content="Richard Fagot"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Richard Fagot",
+    
+    "url": "https:\/\/richard-fagot.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/richard-fagot.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/richard-fagot.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/richard-fagot.github.io\/posts\/le-jeu-de-la-vie-en-drools\/",
+          "name": "Drools, le jeu de la vie"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Richard Fagot"
+  },
+  "headline": "Drools, Le jeu de la vie",
+  "description" : "Un collègue m\x26rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.\nSimple et élégante, comme on peut s\x26rsquo;y attendre en Haskell, cela m\x26rsquo;a donné l\x26rsquo;idée de le faire en Drools.\nTL,DR  Téléchargez l\x26rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Le contexte Lorsqu\x26rsquo;on suit les tutoriaux pour apprendre à faire du Drools (ou du JRules aussi d\x26rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu\x26rsquo;on peut faire avec un BRMS : la suite de Fibonacci.",
+  "inLanguage" : "fr",
+  "wordCount":  826 ,
+  "datePublished" : "2015-09-17T00:00:00",
+  "dateModified" : "2015-09-17T00:00:00",
+  "image" : "https:\/\/richard-fagot.github.io\/img\/avatar.png",
+  "keywords" : [ "drools, jboss, BRMS, Moteur de règles métiers, Le jeu de la vie, Conway\x27s Game Of Life" ],
+  "mainEntityOfPage" : "https:\/\/richard-fagot.github.io\/posts\/le-jeu-de-la-vie-en-drools\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/richard-fagot.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/richard-fagot.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Drools, Le jeu de la vie" />
+<meta property="og:description" content="Un collègue m&rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.
+Simple et élégante, comme on peut s&rsquo;y attendre en Haskell, cela m&rsquo;a donné l&rsquo;idée de le faire en Drools.
+TL,DR  Téléchargez l&rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Le contexte Lorsqu&rsquo;on suit les tutoriaux pour apprendre à faire du Drools (ou du JRules aussi d&rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu&rsquo;on peut faire avec un BRMS : la suite de Fibonacci.">
+<meta property="og:image" content="https://richard-fagot.github.io/img/avatar.png" />
+<meta property="og:url" content="https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Richard Fagot" />
+
+  <meta name="twitter:title" content="Drools, Le jeu de la vie" />
+  <meta name="twitter:description" content="Un collègue m&rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.
+Simple et élégante, comme on peut s&rsquo;y attendre en Haskell, cela m&rsquo;a donné …">
+  <meta name="twitter:image" content="https://richard-fagot.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@@richardfagot" />
+  <meta name="twitter:creator" content="@@richardfagot" />
+  <link href='https://richard-fagot.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.69.2" />
+  <link rel="alternate" href="https://richard-fagot.github.io/index.xml" type="application/rss+xml" title="Richard Fagot"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://richard-fagot.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/syntax.css" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://richard-fagot.github.io/">Richard Fagot</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Richard Fagot" href="https://richard-fagot.github.io/">
+            <img class="avatar-img" src="https://richard-fagot.github.io/img/avatar.png" alt="Richard Fagot" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Drools, Le jeu de la vie</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><img src="/img/drools-jeu-de-la-vie/feature-drools-game-of-life.gif" alt="img"></p>
+<p>Un collègue m&rsquo;a montré son implémentation du <em>jeu de la vie</em> suite à son autoformation en <em>Haskell</em>.</p>
+<p>Simple et élégante, comme on peut s&rsquo;y attendre en <em>Haskell</em>, cela m&rsquo;a donné l&rsquo;idée de le faire en <em>Drools</em>.</p>
+<h2 id="tldr">TL,DR</h2>
+<ol>
+<li><a href="https://github.com/richard-fagot/drools-6.2.0-ConwaysGameOfLife">Téléchargez l&rsquo;exemple</a> ;</li>
+<li>Suivez les instructions indiquées dans le <em>README.md</em>.</li>
+</ol>
+<h2 id="le-contexte">Le contexte</h2>
+<p>Lorsqu&rsquo;on suit les tutoriaux pour apprendre à faire du <em>Drools</em> (ou du <em>JRules</em> aussi d&rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu&rsquo;on peut faire avec un <em>BRMS</em> : la suite de Fibonacci.</p>
+<p>Bien que permettant d&rsquo;illustrer la récursivité, j&rsquo;ai toujours trouvé cet exemple peu ludique et peu motivant.</p>
+<p>Au contraire, le <em>jeu de la vie</em> est un exemple ludique et motivant car le résultat de l&rsquo;exécution du moteur de règle peut se voir sous la forme d&rsquo;une animation bien sympathique.</p>
+<h2 id="le-jeu-de-la-vie">Le jeu de la vie</h2>
+<p>Le jeu de la vie est un automate cellulaire inventé en 1970 par <em>John H. Conway</em>. Ce dernier essaya de simplifier un machine qui pourrait s&rsquo;auto-reproduire, inventée par <em>John Von Neumann</em>. Il y parvint avec un certain succès vu que le jeu de la vie est probablement l&rsquo;automate cellulaire le plus connu au monde !</p>
+<p>Son travail déboucha sur deux règles simples :</p>
+<ul>
+<li>une cellule morte qui possède exactement 3 voisines devient vivante ;</li>
+<li>une cellule vivante qui possède moins de 2 ou plus de 3 voisines meurt.</li>
+</ul>
+<p>Pour plus d&rsquo;information, je vous invite à consulter <a href="https://fr.wikipedia.org/wiki/Jeu_de_la_vie">l&rsquo;article wikipedia</a>.</p>
+<h2 id="limplémentation">L&rsquo;implémentation</h2>
+<p>Le jeu de la vie se résume en deux règles.</p>
+<p>Ça tombe bien, <em>Drools</em> est un moteur de règles et il ne nous faudra pas plus que ces deux règles exactement pour implémenter notre solution.</p>
+<p>Tout repose sur les cellules :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> 
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cell</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> DEAD <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> ALIVE <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> posX<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> posY<span style="color:#f92672">;</span>
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> state<span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Ces dernières ont une position dans le plan et un état <em>vivant</em> ou <em>mort</em>.</p>
+<p>On en crée tout un lot remplissant un espace 2D, certaines vivantes, d&rsquo;autre mortes, aléatoirement. Et on pousse tout ça dans la <em>Working Memory</em>.</p>
+<p>L&rsquo;implémentation des deux règles du jeu de la vie se fait de façon relativement directe. On prend une cellule et on compte le nombre de cellules vivantes autour d&rsquo;elle. Ce décomptage nécessite une petite subtilité de <em>Drools</em> par l&rsquo;utilisation d&rsquo;un accumulateur.</p>
+<p><strong>Règle qui ramène à la vie une cellule morte s&rsquo;il y a exactement 3 cellules vivantes prononçant des incantations du livre des morts autour d&rsquo;elle :</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> 
+when
+  currentCell <span style="color:#f92672">:</span> Cell<span style="color:#f92672">(</span>state <span style="color:#f92672">==</span> Cell<span style="color:#f92672">.</span><span style="color:#a6e22e">DEAD</span><span style="color:#f92672">)</span>
+  nbNeighbours <span style="color:#f92672">:</span> Number<span style="color:#f92672">(</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> 3<span style="color:#f92672">)</span> from <span style="color:#a6e22e">accumulate</span> <span style="color:#f92672">(</span>
+    $cell <span style="color:#f92672">:</span> Cell<span style="color:#f92672">((</span>state <span style="color:#f92672">==</span> Cell<span style="color:#f92672">.</span><span style="color:#a6e22e">ALIVE</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>
+      <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">))</span> 
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">))</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)))</span>
+                   
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">))</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span><span style="color:#f92672">))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">))</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span><span style="color:#f92672">))</span>
+                   
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">))</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">)</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">))</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span>
+                   
+    <span style="color:#f92672">))</span>
+        
+    <span style="color:#f92672">,</span> count<span style="color:#f92672">(</span>$cell<span style="color:#f92672">))</span>
+        
+    then
+        currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> Cell<span style="color:#f92672">.</span><span style="color:#a6e22e">ALIVE</span><span style="color:#f92672">;</span> </code></pre></div>
+<p>Habituellement, on trouve autant d&rsquo;instance de règles que de combinaisons d&rsquo;objets qui exécutent cette règle. L&rsquo;accumulateur permet d&rsquo;avoir une seule instance de règle pour l&rsquo;ensemble des objets qui correspondent aux critères indiqués.</p>
+<p>Ici, on récupère toutes les cellules vivantes qui entourent la cellule courante et on applique la fonction <code>count()</code> (il en existe d&rsquo;autre, comme <code>sum()</code> par exemple).</p>
+<p>Pour une règle plus lisible, il aurait été préférable d&rsquo;appeler une méthode que se charge de retourner l&rsquo;ensemble des voisins vivants autour d&rsquo;une cellule donnée mais, ici, je souhaitais illustrer l&rsquo;accumulateur et rester dans l&rsquo;idée d&rsquo;implémenter le jeu de la vie entièrement en <em>Drools</em>.</p>
+<p><strong>Règle qui tue une cellule vivante s&rsquo;il y a trop ou trop peu de cellules vivantes autour d&rsquo;elle pour lui donner des croquettes au saumon :</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> 
+when
+  currentCell <span style="color:#f92672">:</span> Cell<span style="color:#f92672">(</span>state <span style="color:#f92672">==</span> Cell<span style="color:#f92672">.</span><span style="color:#a6e22e">ALIVE</span><span style="color:#f92672">)</span>
+  nbNeighbours <span style="color:#f92672">:</span> 
+    Number<span style="color:#f92672">(</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&lt;</span> 2 <span style="color:#f92672">||</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&gt;</span> 3<span style="color:#f92672">)</span> from <span style="color:#a6e22e">accumulate</span> <span style="color:#f92672">(</span>
+    $cell <span style="color:#f92672">:</span> Cell<span style="color:#f92672">((</span>state <span style="color:#f92672">==</span> Cell<span style="color:#f92672">.</span><span style="color:#a6e22e">ALIVE</span><span style="color:#f92672">)</span>
+      <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>
+      <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">))</span> 
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">))</span> 
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)))</span>
+                   
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">))</span> 
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span><span style="color:#f92672">))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">))</span> 
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span><span style="color:#f92672">))</span>
+                   
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">))</span> 
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">)</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span>
+      <span style="color:#f92672">||</span> <span style="color:#f92672">((</span>posX <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posX</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">))</span>
+        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>posY <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">posY</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span>
+                   
+        <span style="color:#f92672">))</span>
+        
+        <span style="color:#f92672">,</span> count<span style="color:#f92672">(</span>$cell<span style="color:#f92672">))</span>
+        
+    then
+        currentCell<span style="color:#f92672">.</span><span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> Cell<span style="color:#f92672">.</span><span style="color:#a6e22e">DEAD</span><span style="color:#f92672">;</span>  </code></pre></div>
+<h2 id="lexécution">L&rsquo;exécution</h2>
+
+<link rel="stylesheet" href="https://richard-fagot.github.io/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure class="center" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/img/drools-jeu-de-la-vie/LeJeuDeLaVie.gif#center" alt="Le jeu de la vie"/>
+    </div>
+    <a href="/img/drools-jeu-de-la-vie/LeJeuDeLaVie.gif#center" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<p>Pour rendre la chose plus ludique et attrayante j&rsquo;ai ajouté une visualisation graphique des différents calculs portés par <em>Drools</em>.</p>
+<p>Exécutez la classe <code>Main.java</code> comme projet java et émerveillez-vous devant le miracle des multiples résurrections !</p>
+<p>Le projet d&rsquo;exemple se trouve sur <a href="https://github.com/richard-fagot/drools-6.2.0-ConwaysGameOfLife">https://github.com/richard-fagot/drools-6.2.0-ConwaysGameOfLife</a></p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://richard-fagot.github.io//tags/drools/">drools</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/jboss/">jboss</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/brms/">BRMS</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/moteur-de-r%C3%A8gles-m%C3%A9tiers/">Moteur de règles métiers</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/le-jeu-de-la-vie/">Le jeu de la vie</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/conways-game-of-life/">Conway&#39;s Game Of Life</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://richard-fagot.github.io/posts/drools-dt-jbpmn/" data-toggle="tooltip" data-placement="top" title="Drools, Tables de décision et Ruleflow">&larr; Post précédent</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://richard-fagot.github.io/posts/la-disparition-images/" data-toggle="tooltip" data-placement="top" title="AngularJS, mobile et disparition d&#39;image.">Post suivant &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/richard-fagot" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/@richardfagot" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/richardfagot" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://richard-fagot.github.io/">Richard Fagot</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2018
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://richard-fagot.github.io/">Richard Fagot</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Carbure avec <a href="https://gohugo.io">Hugo v0.69.2</a>&nbsp;&bull;&nbsp; Avec le Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapté de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://richard-fagot.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://richard-fagot.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

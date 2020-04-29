@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GDCR on Richard Fagot</title>
+    <link>https://richard-fagot.github.io/tags/gdcr/</link>
+    <description>Recent content in GDCR on Richard Fagot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://richard-fagot.github.io/tags/gdcr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Retours sur le Code Retreat 2016</title>
+      <link>https://richard-fagot.github.io/posts/retour-code-retreat-2016/</link>
+      <pubDate>Wed, 02 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/retour-code-retreat-2016/</guid>
+      <description>Le Global Day of Code Retreat est un événement mondial où des développeurs se réunissent pour le plaisir de pratiquer l&amp;rsquo;artisanat logiciel (Software Craftmanship) autour d&amp;rsquo;un sujet commun - le jeu de la vie - à implémenter par la technique du TDD (Test Driven Development), avec quelques contraintes imposées par les facilitateurs (qui portent plutôt mal leur nom du coup).
+TL,DR  115 villes participantes ; 14 développeurs passionnés à Toulouse ; 2 facilitateurs ; 1 samedi complet à coder en TDD ; 6 sessions de 45 min.</description>
+    </item>
+    
+  </channel>
+</rss>

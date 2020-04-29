@@ -3,15 +3,182 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://richard-fagot.github.io/tags/don-de-moelle/</loc>
+    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://richard-fagot.github.io/posts/don-de-moelle-osseuse/</loc>
+    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://richard-fagot.github.io/tags/m%C3%A9decine/</loc>
+    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/</loc>
+    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/</loc>
+    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/</loc>
+    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/gdcr/</loc>
+    <lastmod>2016-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/retour-code-retreat-2016/</loc>
+    <lastmod>2016-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/tdd/</loc>
+    <lastmod>2016-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/angular/</loc>
+    <lastmod>2016-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/la-disparition-images/</loc>
+    <lastmod>2016-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/images/</loc>
+    <lastmod>2016-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/op%C3%A9rateur-mobile/</loc>
+    <lastmod>2016-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/brms/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/conways-game-of-life/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/drools/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/jboss/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/le-jeu-de-la-vie/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/moteur-de-r%C3%A8gles-m%C3%A9tiers/</loc>
+    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/drools-dt-jbpmn/</loc>
+    <lastmod>2015-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/excel/</loc>
+    <lastmod>2015-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/ruleflow/</loc>
+    <lastmod>2015-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/table-de-d%C3%A9cision/</loc>
+    <lastmod>2015-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/configurer-ovh-pour-github-pages/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/dns/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/github/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/github-pages/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/ovh/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/feeling-responsive/</loc>
+    <lastmod>2015-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/installer-jekyll-pour-le-theme-feeling-responsive/</loc>
+    <lastmod>2015-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/jekyll/</loc>
+    <lastmod>2015-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/ubuntu/</loc>
+    <lastmod>2015-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/tags/ssh/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://richard-fagot.github.io/categories/</loc>
   </url>
   
 </urlset>

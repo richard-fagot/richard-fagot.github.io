@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Images on Richard Fagot</title>
+    <link>https://richard-fagot.github.io/tags/images/</link>
+    <description>Recent content in Images on Richard Fagot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Fri, 11 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://richard-fagot.github.io/tags/images/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AngularJS, mobile et disparition d&#39;image.</title>
+      <link>https://richard-fagot.github.io/posts/la-disparition-images/</link>
+      <pubDate>Fri, 11 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/la-disparition-images/</guid>
+      <description>Une application web mobile en AngularJS, des images qui tantôt s&amp;rsquo;affichent sur certains mobiles, tantôt pas. La disparition de ces images n&amp;rsquo;est pas mystérieuse ni aléatoire mais est causée par des êtres se dissimulant dans les profondeurs obscures du réseau et laissant leur trace dans nos applications développées avec force et courage.
+TL,DR  Utilisez la directive ng-src pour indiquer l&amp;rsquo;emplacement relatif de vos images ; Fin.  Le contexte Pour un client, nous avons développé une application AngularJS avec Bootstrap pour une utilisation sur mobile en 3G/4G.</description>
+    </item>
+    
+  </channel>
+</rss>

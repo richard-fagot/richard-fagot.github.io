@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Le jeu de la vie on Richard Fagot</title>
+    <link>https://richard-fagot.github.io/tags/le-jeu-de-la-vie/</link>
+    <description>Recent content in Le jeu de la vie on Richard Fagot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 17 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://richard-fagot.github.io/tags/le-jeu-de-la-vie/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Drools, Le jeu de la vie</title>
+      <link>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</link>
+      <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</guid>
+      <description>Un collègue m&amp;rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.
+Simple et élégante, comme on peut s&amp;rsquo;y attendre en Haskell, cela m&amp;rsquo;a donné l&amp;rsquo;idée de le faire en Drools.
+TL,DR  Téléchargez l&amp;rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Le contexte Lorsqu&amp;rsquo;on suit les tutoriaux pour apprendre à faire du Drools (ou du JRules aussi d&amp;rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu&amp;rsquo;on peut faire avec un BRMS : la suite de Fibonacci.</description>
+    </item>
+    
+  </channel>
+</rss>

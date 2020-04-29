@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Richard Fagot</title>
+    <link>https://richard-fagot.github.io/tags/ssh/</link>
+    <description>Recent content in ssh on Richard Fagot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 12 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://richard-fagot.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installer une clé SSH pour github sous ubuntu 14.04</title>
+      <link>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
+      <description> Suivre les étapes indiquées dans Github sans faire la 5 ; Faire ssh-keyscan -t rsa github.com &amp;gt; ~/.ssh/known_hosts ; Faire l&amp;rsquo;étape 5 ; cloner le projet git en utilisant le clone SSH.  </description>
+    </item>
+    
+  </channel>
+</rss>
