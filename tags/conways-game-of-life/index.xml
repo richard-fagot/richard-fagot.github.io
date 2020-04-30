@@ -13,10 +13,10 @@
     
     <item>
       <title>Drools, Le jeu de la vie</title>
-      <link>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</link>
+      <link>https://richard-fagot.github.io/post/le-jeu-de-la-vie-en-drools/</link>
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://richard-fagot.github.io/posts/le-jeu-de-la-vie-en-drools/</guid>
+      <guid>https://richard-fagot.github.io/post/le-jeu-de-la-vie-en-drools/</guid>
       <description>Un collègue m&amp;rsquo;a montré son implémentation du jeu de la vie suite à son autoformation en Haskell.
 Simple et élégante, comme on peut s&amp;rsquo;y attendre en Haskell, cela m&amp;rsquo;a donné l&amp;rsquo;idée de le faire en Drools.
 TL,DR  Téléchargez l&amp;rsquo;exemple ; Suivez les instructions indiquées dans le README.md.  Le contexte Lorsqu&amp;rsquo;on suit les tutoriaux pour apprendre à faire du Drools (ou du JRules aussi d&amp;rsquo;ailleurs), il y a un exemple qui est systématiquement présenté pour illustrer ce qu&amp;rsquo;on peut faire avec un BRMS : la suite de Fibonacci.</description>

@@ -13,10 +13,10 @@
     
     <item>
       <title>Installer Jekyll pour faire tourner le thème Feeling Responsive</title>
-      <link>https://richard-fagot.github.io/posts/installer-jekyll-pour-le-theme-feeling-responsive/</link>
+      <link>https://richard-fagot.github.io/post/installer-jekyll-pour-le-theme-feeling-responsive/</link>
       <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://richard-fagot.github.io/posts/installer-jekyll-pour-le-theme-feeling-responsive/</guid>
+      <guid>https://richard-fagot.github.io/post/installer-jekyll-pour-le-theme-feeling-responsive/</guid>
       <description>Installer Jekyll sous ubuntu 14.04 n&amp;rsquo;est pas trivial : les dépôts contiennent une version d&amp;rsquo;outre-tombe de Jekyll et une version poussiéreuse de Ruby. En plus, Jekyll seul ne suffit pas, il faut en plus installer nodejs.
 Plutôt que d&amp;rsquo;avoir une gueule de revenant après avoir chercher pendant des heures comment faire tourner le bouzin, faites ceci :
 apt-add-repository ppa:brightbox/ruby-ng apt-get update apt-get install ruby2.2 ruby2.2-dev apt-get install nodejs npm gem install jekyll Youpi, c&amp;rsquo;est fini et vous avez gardé votre physique de jeune premier !</description>
@@ -24,10 +24,10 @@ apt-add-repository ppa:brightbox/ruby-ng apt-get update apt-get install ruby2.2 
     
     <item>
       <title>Installer une clé SSH pour github sous ubuntu 14.04</title>
-      <link>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</link>
+      <link>https://richard-fagot.github.io/post/installer-cle-ssh-pour-github-sous-ubuntu/</link>
       <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
+      <guid>https://richard-fagot.github.io/post/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
       <description> Suivre les étapes indiquées dans Github sans faire la 5 ; Faire ssh-keyscan -t rsa github.com &amp;gt; ~/.ssh/known_hosts ; Faire l&amp;rsquo;étape 5 ; cloner le projet git en utilisant le clone SSH.  </description>
     </item>
     

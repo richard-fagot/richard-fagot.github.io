@@ -13,10 +13,10 @@
     
     <item>
       <title>Configurer OVH pour Github Pages et s&#39;en sortir vivant !</title>
-      <link>https://richard-fagot.github.io/posts/configurer-ovh-pour-github-pages/</link>
+      <link>https://richard-fagot.github.io/post/configurer-ovh-pour-github-pages/</link>
       <pubDate>Sat, 15 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://richard-fagot.github.io/posts/configurer-ovh-pour-github-pages/</guid>
+      <guid>https://richard-fagot.github.io/post/configurer-ovh-pour-github-pages/</guid>
       <description>Vous possédez un joli nom de domaine chez OVH et un bel hébergement sous Github, mais pénétrer la configuration de zone DNS est comme se retrouver devant l&amp;rsquo;entrée d&amp;rsquo;un nid à zombies ? Suivez ce guide et revenez victorieux des profondeurs infernales de la configuration de zone DNS !
 Le problème J&amp;rsquo;ai créé un site sur la Savate Boxe Française hébergé par un projet sous Github. Pour que se soit plus joli j&amp;rsquo;ai voulu lui associer un beau nom de domaine www.</description>
     </item>

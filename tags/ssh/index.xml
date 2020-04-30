@@ -13,10 +13,10 @@
     
     <item>
       <title>Installer une clé SSH pour github sous ubuntu 14.04</title>
-      <link>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</link>
+      <link>https://richard-fagot.github.io/post/installer-cle-ssh-pour-github-sous-ubuntu/</link>
       <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://richard-fagot.github.io/posts/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
+      <guid>https://richard-fagot.github.io/post/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
       <description> Suivre les étapes indiquées dans Github sans faire la 5 ; Faire ssh-keyscan -t rsa github.com &amp;gt; ~/.ssh/known_hosts ; Faire l&amp;rsquo;étape 5 ; cloner le projet git en utilisant le clone SSH.  </description>
     </item>
     
