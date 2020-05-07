@@ -92,12 +92,13 @@
   <meta name="twitter:site" content="@@richardfagot" />
   <meta name="twitter:creator" content="@@richardfagot" />
   <link href='https://richard-fagot.github.io/img/favicon.png' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.69.2" />
+  <meta name="generator" content="Hugo 0.68.3" />
   <link rel="alternate" href="https://richard-fagot.github.io/index.xml" type="application/rss+xml" title="Richard Fagot"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://richard-fagot.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/syntax.css" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css" />
 
 
 
@@ -255,7 +256,7 @@ Vous voulez faire marcher une table de décision dans un ruleflow ? Vous vous y 
 <p>Dans ce tutoriel, il faudra utiliser la version <em>Drools 6.2.0.Final</em>.</p>
 <h2 id="le-problème">Le problème</h2>
 <p>Pour le développement d&rsquo;un prototype, le client souhaitait un module avec des règles métier, si possible pas cher. Ça tombe bien, <em>Drools</em> est un BRMS open source et gratuit.</p>
-<p>Pour montrer qu&rsquo;il est possible de personnaliser certaines règles facilement, nous avons ajouté une table de décision, simple, mais pour le prototype c&rsquo;était suffisant et serait du plus bel effet.</p>
+<p>Pour montrer qu&rsquo;il est possible de personnaliser certaines règles facilement, nous avons ajouté une table de décision, simple, mais pour le prototype c'était suffisant et serait du plus bel effet.</p>
 <p><em>Drools</em> propose deux façons de faire des tables de décisions avec des fichiers <em>Excel</em>. Dans les deux cas, chaque ligne du fichier donnera une règle basée sur un template à définir.</p>
 <p>La première, pas très sexy, consiste à faire précéder les lignes de données par le template de la règle à exécuter. Cela fait apparaître dans le fichier <em>Excel</em> des informations de nature technique, modifiable par quiconque édite le fichier, avec les séances de débogage obscures que cela implique.</p>
 <p>La seconde, attirante celle-ci, sépare les données d&rsquo;un côté et le template de l&rsquo;autre. On a un fichier <em>Excel</em> d&rsquo;un coté qui contient uniquement les données : la table de décision elle-même telle qu&rsquo;une personne lambda peut l&rsquo;imaginer.</p>
@@ -269,7 +270,7 @@ Vous voulez faire marcher une table de décision dans un ruleflow ? Vous vous y 
 <p>L&rsquo;avantage de cette solution, parce qu&rsquo;il y en a quand même un, c&rsquo;est que, une fois que la table de décision est bien formée, il suffit de la placer à côté des autres règles, et c&rsquo;est tout. Pas de configuration supplémentaire, par de code, rien.</p>
 <p>Le système compile tout seul la table de décision pour générer l&rsquo;ensemble des règles qui s&rsquo;y rapporte.</p>
 <h2 id="limplémentation">L&rsquo;implémentation</h2>
-<p>Nous allons développer un petit système de règles métier permettant de déterminer la catégorie d&rsquo;âge d&rsquo;un tireur en <a href="http://www.esprit-savate.fr"><em>Savate Boxe Française</em></a>.</p>
+<p>Nous allons développer un petit système de règles métier permettant de déterminer la catégorie d'âge d&rsquo;un tireur en <a href="http://www.esprit-savate.fr"><em>Savate Boxe Française</em></a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Boxer</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">private</span> String nom<span style="color:#f92672">;</span>
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
@@ -279,16 +280,16 @@ Vous voulez faire marcher une table de décision dans un ruleflow ? Vous vous y 
       
    <span style="color:#f92672">[...]</span>
 <span style="color:#f92672">}</span></code></pre></div>
-<p>La détermination de la catégorie d&rsquo;âge se fait au moment opportun dans le ruleflow :D</p>
+<p>La détermination de la catégorie d'âge se fait au moment opportun dans le ruleflow :D</p>
 <p><img src="/img/drools-dt-jbpmn/ruleflow.png" alt="Ruleflow"></p>
 <p>Le <em>RuleFlowGroup</em> visible dans les propriétés de la <em>Rule Task</em> est positionné à <em>agePoidsCat</em>. Cette information nous permettra d&rsquo;indiquer à <em>Drools</em> à quel moment exécuter notre table de décision dans le déroulement du <em>Ruleflow</em>.</p>
 <h3 id="la-table-de-décision">La table de décision</h3>
 <p>Nous voici enfin au cœur du problème : la table de décision :</p>
 <p><img src="/img/drools-dt-jbpmn/dt.png" alt="Table de décision"></p>
-<p>Pour l&rsquo;écrire il faut se montrer très rigoureux car il n&rsquo;y a pas d&rsquo;aide à la saisie (pas de complétion automatique), il faut écrire certains libellés exactement comme demandé, dont certains à une place bien précise par rapport aux données.</p>
+<p>Pour l'écrire il faut se montrer très rigoureux car il n&rsquo;y a pas d&rsquo;aide à la saisie (pas de complétion automatique), il faut écrire certains libellés exactement comme demandé, dont certains à une place bien précise par rapport aux données.</p>
 <h3 id="les-méta-données">Les méta-données</h3>
 <p>C&rsquo;est le premier cartouche de table de décision, celui où on indique le package de la règle, les imports et le <em>RuleFlowGroup</em> (il existe d&rsquo;autres méta données, voir la <a href="http://docs.jboss.org/drools/release/6.2.0.Final/drools-docs/html_single/index.html">documentation officielle</a>).</p>
-<p>Le nom de la méta-donnée doit être placé dans une cellule et sa valeur dans la cellule d&rsquo;à côté.</p>
+<p>Le nom de la méta-donnée doit être placé dans une cellule et sa valeur dans la cellule d'à côté.</p>
 <p>Petite particularité pour l&rsquo;import, il faut séparer les différentes valeurs par une virgule. Apparemment, il est possible de mettre chaque valeur dans une suite de cellules les unes en-dessous des autres, mais je n&rsquo;ai pas testé.</p>
 <p>Vient ensuite le template de la règle et des données.</p>
 <h3 id="déclaration-de-la-règle">Déclaration de la règle</h3>
@@ -317,10 +318,10 @@ Vous voulez faire marcher une table de décision dans un ruleflow ? Vous vous y 
  end </code></pre></div>
 <p>On retrouve le nom du package (<em>RuleSet</em>), les imports, le <em>RULEFLOW-GROUP</em>, et le nom des règles à générer (<em>setagecat</em>).</p>
 <p>Le passage de la règle littérale au template dans la table de décision ne pose pas de problème. La particularité ici, réside dans la condition à plusieurs paramètres et aux fautes de frappe.</p>
-<p>L&rsquo;écriture d&rsquo;une condition à plusieurs paramètres est simple à comprendre. Dans les données on sépare les valeurs par une virgule et on les référence par <code>$1</code> et <code>$2</code> (on peut bien sûr mettre plus de deux paramètres). La subtilité vient du tableur.</p>
+<p>L'écriture d&rsquo;une condition à plusieurs paramètres est simple à comprendre. Dans les données on sépare les valeurs par une virgule et on les référence par <code>$1</code> et <code>$2</code> (on peut bien sûr mettre plus de deux paramètres). La subtilité vient du tableur.</p>
 <p>En français, le séparateur des décimaux est la virgule. Si vos paramètres sont des entiers comme ici, <em>Excel</em> les interprétera comme un nombre décimal et marquera la cellule comme tel et <em>Drools</em> ne sera pas capable d&rsquo;interpréter correctement la cellule comme une suite de deux valeurs (ne me demandez pas pourquoi&hellip;). Pour que la cellule soit correctement interprétable par <em>Drools</em> il faut la marquer comme zone de texte :</p>
 <p><img src="/img/drools-dt-jbpmn/cellule-texte.png" alt="Format de la cellule texte"></p>
-<p>Comme il n&rsquo;y a pas de complétion automatique ni de compilation à la volée il faut être rigoureux sur l&rsquo;écriture du template. Je vous conseille d&rsquo;écrire une règle telle quelle doit être générée, de la tester et ensuite de créer la table de décision en faisant des copier-collers.</p>
+<p>Comme il n&rsquo;y a pas de complétion automatique ni de compilation à la volée il faut être rigoureux sur l'écriture du template. Je vous conseille d'écrire une règle telle quelle doit être générée, de la tester et ensuite de créer la table de décision en faisant des copier-collers.</p>
 <h2 id="lexécution">L&rsquo;exécution</h2>
 <p>Une fois la table de décision écrite et sauvegardée, le travail s&rsquo;arrête là. Il n&rsquo;y a pas de code à écrire ni de déclaration à faire dans le <em>kmodule.xml</em>. <em>Drools</em> s&rsquo;occupe d&rsquo;identifier les tables de décisions présentes dans les ressources et de générer les règles correspondantes.</p>
 <p>Exécutez la classe <code>Main.java</code> comme projet java. En sortie, dans la console vous devez avoir :</p>
@@ -419,7 +420,7 @@ Jacques(36 ans, 73 kg) est VeteransCombat</code></pre>
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2018
+            2020
           
 
           
@@ -429,7 +430,7 @@ Jacques(36 ans, 73 kg) est VeteransCombat</code></pre>
         </p>
         
         <p class="credits theme-by text-muted">
-          Carbure avec <a href="https://gohugo.io">Hugo v0.69.2</a>&nbsp;&bull;&nbsp; Avec le Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapté de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          Carbure avec <a href="https://gohugo.io">Hugo v0.68.3</a>&nbsp;&bull;&nbsp; Avec le Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapté de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
