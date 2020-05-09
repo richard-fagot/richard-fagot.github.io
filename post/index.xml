@@ -18,11 +18,7 @@
       
       <guid>https://richard-fagot.github.io/post/casquette-de-distanciation-sociale/</guid>
       <description>Je vous propose ici un petit tuto pour réaliser une casquette pour aider vos (petits) enfants à apprendre à reconnaître les distances à respecter entre eux pour limiter la propagation du COVID-19.
-<<<<<<< HEAD
 La casquette est surmontée d&amp;rsquo;un élégant tube décoré avec goût, d&amp;rsquo;une longueur totale d&amp;rsquo;environ 1,5 m qui permet à deux enfants portant le même dispositif d&amp;rsquo;être séparés d&amp;rsquo;environ 1 m en comptant la largeur d&amp;rsquo;épaule (on ne dirait pas comme ça mais les enfants sont bâtis comme des armoires à glace).</description>
-=======
-La casquette est surmontée d&amp;rsquo;un élégant tube décoré avec goût, d&amp;rsquo;une longueur totale d&amp;rsquo;environ 1,5 m qui permet à deux enfants portant le même dispositif d&#39;être séparés d&amp;rsquo;environ 1 m en comptant la largeur d&#39;épaule (on ne dirait pas comme ça mais les enfants sont bâtis comme des armoires à glace).</description>
->>>>>>> 0571ce9b3a5b2e142f4c0830d3ebeb1ad2de86de
     </item>
     
     <item>
@@ -31,7 +27,7 @@ La casquette est surmontée d&amp;rsquo;un élégant tube décoré avec goût, d
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://richard-fagot.github.io/post/don-de-moelle-osseuse/</guid>
-      <description>Inscrit depuis près de 10 ans au registre de don de moelle osseuse, je reçoit un appel d&amp;rsquo;un médecin qui me dit que quelqu&amp;rsquo;un pourrait avoir besoin de moi et si j&#39;étais toujours d&amp;rsquo;accord pour faire un don. J&amp;rsquo;ai dit oui tout de suite.
+      <description>Inscrit depuis près de 10 ans au registre de don de moelle osseuse, je reçoit un appel d&amp;rsquo;un médecin qui me dit que quelqu&amp;rsquo;un pourrait avoir besoin de moi et si j&amp;rsquo;étais toujours d&amp;rsquo;accord pour faire un don. J&amp;rsquo;ai dit oui tout de suite.
 Mes motivations Je l&amp;rsquo;avoue avec un peu de honte : je ne suis pas très chaud pour donner mes organes une fois mort et encore moins vivant, sauf pour mes enfants.</description>
     </item>
     
@@ -103,7 +99,7 @@ apt-add-repository ppa:brightbox/ruby-ng apt-get update apt-get install ruby2.2 
       <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
       
       <guid>https://richard-fagot.github.io/post/installer-cle-ssh-pour-github-sous-ubuntu/</guid>
-      <description> Suivre les étapes indiquées dans Github sans faire la 5 ; Faire ssh-keyscan -t rsa github.com &amp;gt; ~/.ssh/known_hosts ; Faire l&#39;étape 5 ; cloner le projet git en utilisant le clone SSH.  </description>
+      <description> Suivre les étapes indiquées dans Github sans faire la 5 ; Faire ssh-keyscan -t rsa github.com &amp;gt; ~/.ssh/known_hosts ; Faire l&amp;rsquo;étape 5 ; cloner le projet git en utilisant le clone SSH.  </description>
     </item>
     
   </channel>
