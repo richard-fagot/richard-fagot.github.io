@@ -6,10 +6,73 @@
     <description>Recent content in Tags on Richard Fagot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://richard-fagot.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cubic SDR</title>
+      <link>https://richard-fagot.github.io/tags/cubic-sdr/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/cubic-sdr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FT8</title>
+      <link>https://richard-fagot.github.io/tags/ft8/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/ft8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pskrecorder</title>
+      <link>https://richard-fagot.github.io/tags/pskrecorder/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/pskrecorder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Radioamateur</title>
+      <link>https://richard-fagot.github.io/tags/radioamateur/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/radioamateur/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SDR</title>
+      <link>https://richard-fagot.github.io/tags/sdr/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/sdr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutoriel</title>
+      <link>https://richard-fagot.github.io/tags/tutoriel/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/tutoriel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WSJT-X</title>
+      <link>https://richard-fagot.github.io/tags/wsjt-x/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/tags/wsjt-x/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>COVID-19</title>
@@ -35,15 +98,6 @@
       <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://richard-fagot.github.io/tags/enfant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutoriel</title>
-      <link>https://richard-fagot.github.io/tags/tutoriel/</link>
-      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://richard-fagot.github.io/tags/tutoriel/</guid>
       <description></description>
     </item>
     

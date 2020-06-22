@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Radioamateur on Richard Fagot</title>
+    <link>https://richard-fagot.github.io/tags/radioamateur/</link>
+    <description>Recent content in Radioamateur on Richard Fagot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Thu, 18 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://richard-fagot.github.io/tags/radioamateur/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SDR - Décoder le mode FT8 facilement sous windows</title>
+      <link>https://richard-fagot.github.io/post/sdr-d%C3%A9coder-le-mode-ft8-facilement-sous-windows/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://richard-fagot.github.io/post/sdr-d%C3%A9coder-le-mode-ft8-facilement-sous-windows/</guid>
+      <description>Le FT8 est un digimode créé par K1JT pour réaliser des contacts (QSO) sur de très longues distances avec très peu d&amp;rsquo;énergie. Devenu extrêmement populaire il est courant de pouvoir faire des contacts avec des gens habitants de l&amp;rsquo;autre côté de la terre.
+Prérequis Pour ce tutoriel il vous faut posséder une antenne, si possible centrée sur la fréquence que vous souhaitez écouter (mais un long fil planté dans votre clé ça marche bien aussi), ainsi qu&amp;rsquo;une clé RTL-SDR installée.</description>
+    </item>
+    
+  </channel>
+</rss>

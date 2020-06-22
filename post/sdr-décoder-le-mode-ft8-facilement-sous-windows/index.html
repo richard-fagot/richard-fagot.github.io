@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>SDR - Décoder le mode FT8 facilement sous windows - Richard Fagot</title>
+  <meta name="description" content="Le FT8 est un digimode créé par K1JT pour réaliser des contacts (QSO) sur de très longues distances avec très peu d&rsquo;énergie. Devenu extrêmement populaire il est courant de pouvoir faire des contacts avec des gens habitants de l&rsquo;autre côté de la terre.
+Prérequis Pour ce tutoriel il vous faut posséder une antenne, si possible centrée sur la fréquence que vous souhaitez écouter (mais un long fil planté dans votre clé ça marche bien aussi), ainsi qu&rsquo;une clé RTL-SDR installée.">
+  <meta name="author" content="Richard Fagot"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Richard Fagot",
+    
+    "url": "https:\/\/richard-fagot.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/richard-fagot.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/richard-fagot.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/richard-fagot.github.io\/post\/sdr-d%C3%A9coder-le-mode-ft8-facilement-sous-windows\/",
+          "name": "S d r décoder le mode f t8 facilement sous windows"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Richard Fagot"
+  },
+  "headline": "SDR - Décoder le mode FT8 facilement sous windows",
+  "description" : "Le FT8 est un digimode créé par K1JT pour réaliser des contacts (QSO) sur de très longues distances avec très peu d\x26rsquo;énergie. Devenu extrêmement populaire il est courant de pouvoir faire des contacts avec des gens habitants de l\x26rsquo;autre côté de la terre.\nPrérequis Pour ce tutoriel il vous faut posséder une antenne, si possible centrée sur la fréquence que vous souhaitez écouter (mais un long fil planté dans votre clé ça marche bien aussi), ainsi qu\x26rsquo;une clé RTL-SDR installée.",
+  "inLanguage" : "fr",
+  "wordCount":  777 ,
+  "datePublished" : "2020-06-18T00:00:00",
+  "dateModified" : "2020-06-18T00:00:00",
+  "image" : "https:\/\/richard-fagot.github.io\/img\/avatar.png",
+  "keywords" : [ "Tutoriel, Radioamateur, FT8, pskrecorder, SDR, WSJT-X, Cubic SDR" ],
+  "mainEntityOfPage" : "https:\/\/richard-fagot.github.io\/post\/sdr-d%C3%A9coder-le-mode-ft8-facilement-sous-windows\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/richard-fagot.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/richard-fagot.github.io\/img\/avatar.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="SDR - Décoder le mode FT8 facilement sous windows" />
+<meta property="og:description" content="Le FT8 est un digimode créé par K1JT pour réaliser des contacts (QSO) sur de très longues distances avec très peu d&rsquo;énergie. Devenu extrêmement populaire il est courant de pouvoir faire des contacts avec des gens habitants de l&rsquo;autre côté de la terre.
+Prérequis Pour ce tutoriel il vous faut posséder une antenne, si possible centrée sur la fréquence que vous souhaitez écouter (mais un long fil planté dans votre clé ça marche bien aussi), ainsi qu&rsquo;une clé RTL-SDR installée.">
+<meta property="og:image" content="https://richard-fagot.github.io/img/avatar.png" />
+<meta property="og:url" content="https://richard-fagot.github.io/post/sdr-d%C3%A9coder-le-mode-ft8-facilement-sous-windows/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Richard Fagot" />
+
+  <meta name="twitter:title" content="SDR - Décoder le mode FT8 facilement sous windows" />
+  <meta name="twitter:description" content="Le FT8 est un digimode créé par K1JT pour réaliser des contacts (QSO) sur de très longues distances avec très peu d&rsquo;énergie. Devenu extrêmement populaire il est courant de pouvoir faire des …">
+  <meta name="twitter:image" content="https://richard-fagot.github.io/img/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@@richardfagot" />
+  <meta name="twitter:creator" content="@@richardfagot" />
+  <link href='https://richard-fagot.github.io/img/favicon.png' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.69.2" />
+  <link rel="alternate" href="https://richard-fagot.github.io/index.xml" type="application/rss+xml" title="Richard Fagot"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://richard-fagot.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/syntax.css" /><link rel="stylesheet" href="https://richard-fagot.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-165981365-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://richard-fagot.github.io/">Richard Fagot</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Richard Fagot" href="https://richard-fagot.github.io/">
+            <img class="avatar-img" src="https://richard-fagot.github.io/img/avatar.png" alt="Richard Fagot" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 
+      
+         
+          data-img-src-1="/img/ft8-windows/feature.jpg" 
+         
+         
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>SDR - Décoder le mode FT8 facilement sous windows</h1>
+                  
+                  
+                    <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posté le 18 June 2020
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Richard Fagot
+    
+  
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>SDR - Décoder le mode FT8 facilement sous windows</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posté le 18 June 2020
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Richard Fagot
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Le FT8 est un digimode créé par K1JT pour réaliser des contacts (QSO) sur de très longues distances avec très peu d&rsquo;énergie. Devenu extrêmement populaire il est courant de pouvoir faire des contacts avec des gens habitants de l&rsquo;autre côté de la terre.</p>
+<h2 id="prérequis">Prérequis</h2>
+<p>Pour ce tutoriel il vous faut posséder une antenne, si possible centrée sur la fréquence que vous souhaitez écouter (mais un long fil planté dans votre clé ça marche bien aussi), ainsi qu&rsquo;une clé RTL-SDR installée.</p>
+<h2 id="logiciels-nécessaires">Logiciels nécessaires</h2>
+<ul>
+<li><a href="https://cubicsdr.com/?cat=4">Cubic SDR</a> (pour écouter ce qui vient de la clé RTL-SDR) ;</li>
+<li><a href="https://physics.princeton.edu/pulsar/K1JT/wsjtx.html">WSJT-X</a> (pour décoder le mode FT8) ;</li>
+<li><a href="https://www.vb-audio.com/Cable/">Virtual Audio Cable</a> (pour rediriger le son venant de cubic SDR vers WSJT-X).</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="cubic-sdr">Cubic SDR</h3>
+<p>L&rsquo;installation de <em>Cubic SDR</em> est simplissime : après avoir téléchargé l&rsquo;installeur il suffit de double-cliquer dessus et de suivre les instructions.</p>
+<h3 id="wsjt-x">WSJT-X</h3>
+<p>L&rsquo;installation de <em>WSJT-X</em> est aussi simple : on double-clique sur l&rsquo;installeur après l&rsquo;avoir télécharger et on se laisse guider.</p>
+<h3 id="virtual-audio-cable">Virtual Audio Cable</h3>
+<p><em>Virtual Audio Cable</em> est presque aussi facile à installer car il y a une petite subtilité. Après avoir téléchargé le fichier il faut le dézipper (dans le répertoire de téléchargement c&rsquo;est très bien). Ensuite, il faut aller dans le répertoire dézippé et faire un clic droit sur le fichier <em>VBCABLE_Setup_x64.exe</em> et sélectionner <em>Exécuter en tant qu&rsquo;administrateur</em>.</p>
+<p><img src="/img/ft8-windows/admin.png" alt="Exécuter en tant qu&rsquo;administrateur"></p>
+<p>Confirmez et poursuivez l&rsquo;installation.</p>
+<p>Maintenant vous pouvez redémarrer Windows 10 pour bien prendre en compte cette installation.</p>
+<h2 id="mise-en-route">Mise en route</h2>
+<p>Commencer par lancer <em>Cubic SDR</em>. Au démarrage il demande de sélectionner la clé RTL-SDR. Sélectionner-là.</p>
+<p><img src="/img/ft8-windows/choix-cle.png" alt="Sélection de la clé RTL-SDR"></p>
+<p>Sélectionner le mode <em>USB</em> puis une des fréquences suivantes (non exhautive).</p>
+<table>
+<thead>
+<tr>
+<th>Bande</th>
+<th align="center">Fréquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>160m</td>
+<td align="center">1.840 Mhz</td>
+</tr>
+<tr>
+<td>80m</td>
+<td align="center">3.573 Mhz</td>
+</tr>
+<tr>
+<td>60m</td>
+<td align="center">5.357 Mhz</td>
+</tr>
+<tr>
+<td>40m</td>
+<td align="center">7.074 Mhz</td>
+</tr>
+<tr>
+<td>30m</td>
+<td align="center">10.136 Mhz</td>
+</tr>
+<tr>
+<td>20m</td>
+<td align="center">14.074 Mhz</td>
+</tr>
+<tr>
+<td>17m</td>
+<td align="center">18.100 Mhz</td>
+</tr>
+<tr>
+<td>15m</td>
+<td align="center">21.074 Mhz</td>
+</tr>
+<tr>
+<td>12m</td>
+<td align="center">24.915 Mhz</td>
+</tr>
+<tr>
+<td>10m</td>
+<td align="center">28.074 Mhz</td>
+</tr>
+<tr>
+<td>6m</td>
+<td align="center">50.313 Mhz</td>
+</tr>
+<tr>
+<td>4m</td>
+<td align="center">70.095 Mhz</td>
+</tr>
+<tr>
+<td>2m</td>
+<td align="center">144.174 Mhz</td>
+</tr>
+</tbody>
+</table>
+<p>Attention, selon le type de clé toutes les fréquences ne sont pas disponibles : pour les clés RTL-SDR bon marché, il n&rsquo;est pas rare que les fréquences sous les 60 MHz ne soient pas accessibles (pour les écouter il faut utiliser un <em>upconverter</em>).</p>
+<p>Il peut également y avoir un petit décalage de fréquence due à l&rsquo;imprécision de la clé RTL-SDR. Dans ce cas centrez bien la largeur de bande sur le signal reçu.</p>
+<p><img src="/img/ft8-windows/selection-freq-mode2.png" alt="Sélection du mode et de la fréquence"></p>
+<p>Si la réception est bonne vous devez voir apparaître dans le waterfall un signal qui ressemble à ça :</p>
+<p><img src="/img/ft8-windows/waterfall-exemple.png" alt="Exemple de signal FT8"></p>
+<p>Maintenant nous allons rediriger le signal sonnore généré par <em>Cubic SDR</em> (celui qu&rsquo;on entend sur les hauts-parleurs) dans le câble audio virtuel.</p>
+<p>Pour cela :</p>
+<ol>
+<li>Cliquer sur l&rsquo;icône son de la barre des tâches ;</li>
+</ol>
+<p><img src="/img/ft8-windows/parametres-son.png" alt="Paramètre son"></p>
+<ol start="2">
+<li>Cliquer sur le nom de la sortie son par défaut ;</li>
+</ol>
+<p><img src="/img/ft8-windows/parametrage-sortie-son.png" alt="Accès sélection sortie"></p>
+<ol start="3">
+<li>Sélectionner <em>CABLE input (VB-Audio Virtual Cable)</em>.</li>
+</ol>
+<p><img src="/img/ft8-windows/selection-cable-virtuel.png" alt="Sélection câble virtuel"></p>
+<p>Vous n&rsquo;entendez plus rien et c&rsquo;est normal car le son est redirigé vers une sortie virtuelle que nous allons utiliser en entrée de WSJT-X.</p>
+<p>Justement, il est temps de lancer WSJT-X. Une fois ouvert aller dans <em><strong>File &gt; Settings…</strong></em></p>
+<p><img src="/img/ft8-windows/settings.png" alt="WSJT-X Settings"></p>
+<p>Ouvrir l&rsquo;onglet <em><strong>Audio</strong></em> et dans le champ <em><strong>input</strong></em> sélectionner le câble audio virtuel puis cliquer sur <em><strong>OK</strong></em>.</p>
+<p><img src="/img/ft8-windows/selection-entree-son.png" alt="Sélection entrée son"></p>
+<p>Ensuite, configurer le mode de décodage FT8 dans <em><strong>Mode &gt; FT8</strong></em>.</p>
+<p><img src="/img/ft8-windows/selection-mode-ft8.png" alt="Sélection du mode FT8"></p>
+<p>Enfin, sélectionner la bande de fréquence choisie. patienter entre 15 et 30s et les premiers décodages devraient apparaître.</p>
+<p><img src="/img/ft8-windows/decodage-FT8.png" alt="Décodage en cours"></p>
+<h2 id="pour-aller-plus-loin">Pour aller plus loin</h2>
+<p>Toutes les écoutes établies avec WSJT-X peuvent être visualisées sur une carte du monde. Cela permet de mieux se rendre compte d&rsquo;où viennent les signaux que l&rsquo;on a reçu, et ils peuvent venir de très loin.</p>
+<p>Pour cela on va s&rsquo;appuyer sur les services de <em>PSKReporter</em> mais avant il vous faut un indicatif d&rsquo;écouteur (rien d&rsquo;obligatoire en 2020 mais je vous le conseille, on attrappe vite le virus) et connaître votre <em>locator</em>.</p>
+<p>Pour l&rsquo;indicatif il y a plusieurs associations qui en distribuent gratuitement. Le site de <a href="https://f-10255.pagesperso-orange.fr/identifiants/identifiants.htm">F-10255</a> en parle bien et donne plusieurs liens où faire sa demande d&rsquo;indicatif.</p>
+<p>Pour le <em>locator</em> c&rsquo;est un identifiant qui permet de localiser dans un rectangle votre poste d&rsquo;écoute sur la planète, un peu comme des coordonnées GPS, mais en moins précis. Il suffit d&rsquo;aller <a href="http://www.egloff.eu/googlemap_v3/carto.php">sur ce site</a> et de zoomer là où vous écoutez. Au plus on zoom et au plus les coordonnées obtenues sont précises, vous pouvez vous arrêter à 2 lettres, 2 chiffres et 2 lettres.</p>
+<p>Une fois votre indicatif SWL (d&rsquo;écouteur) et votre <em>locator</em> en main il vous suffit de les renseigner dans les champs <em><strong>My call</strong></em> (indicatif SWL) et <em><strong>My grid</strong></em> (le locator) dans <em><strong>File &gt; Settings… &gt; General</strong></em> puis de cocher <em><strong>Enable PSK Reporter Spotting</strong></em> dans l&rsquo;onglet <em><strong>Reporting</strong></em>.</p>
+<p>Quelques minutes plus tard, tous les signaux reçus apparaîtront sur le site de <a href="https://pskreporter.info/pskmap.html">PSK Reporter</a> en saisissant votre indicatif dans le champ de recherche.</p>
+<p><img src="/img/ft8-windows/feature.jpg" alt="PSK Reporter"></p>
+<p><strong>Amusez-vous bien et bonne écoute !</strong></p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://richard-fagot.github.io//tags/tutoriel/">Tutoriel</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/radioamateur/">Radioamateur</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/ft8/">FT8</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/pskrecorder/">pskrecorder</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/sdr/">SDR</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/wsjt-x/">WSJT-X</a>&nbsp;
+            
+              <a href="https://richard-fagot.github.io//tags/cubic-sdr/">Cubic SDR</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://richard-fagot.github.io/post/casquette-de-distanciation-sociale/" data-toggle="tooltip" data-placement="top" title="Tutoriel : Fabriquer une casquette de distanciation sociale">&larr; Post précédent</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/richard-fagot" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/@richardfagot" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/richardfagot" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://richard-fagot.github.io/">Richard Fagot</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://richard-fagot.github.io/">Richard Fagot</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Carbure avec <a href="https://gohugo.io">Hugo v0.69.2</a>&nbsp;&bull;&nbsp; Avec le Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapté de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://richard-fagot.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://richard-fagot.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
